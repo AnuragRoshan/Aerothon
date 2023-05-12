@@ -29,6 +29,9 @@ exports.registerUser = async (req, res) => {
     }
 };
 
+
+
+
 exports.loginUser = (req, res, next) => {
     passport.authenticate("local", (err, user, info) => {
         console.log(err);
@@ -44,15 +47,24 @@ exports.loginUser = (req, res, next) => {
     })(req, res, next);
 };
 
-exports.filterParts = async (req, res, next) => {
+exports.filterParts = async (req, res) => {
+    const ages = req.params.age;
+    const cfp = req.params.cfp;
+    const lcs = req.params.lcs;
+    const landfill = req.params.landfill;
+    const water = req.params.water;
+    console.log(ages);
     try {
         let doc = await partsSchema.find({
-            age: { $lt: "11" },
-            condition: "Used",
-            manufacturer: "Gulfstream",
-            material_Composition: "Titanium"
-        })
-        return res.status(200).json({ doc });
+            $age: { $gt: "0" }
+            // $and: [
+            //     { $expr: { $lt: [{ $toInt: "$age" }, 14] } },
+            //     { $expr: { $lt: [{ $toInt: "$carbon_footprint_saved" }, cfp] } }
+            // ]
+        }).limit(30)
+            .exec()
+        console.log(doc);
+        return res.status(200).json(doc);
     }
     catch (error) {
         throw error;
@@ -61,9 +73,15 @@ exports.filterParts = async (req, res, next) => {
 exports.manufacturerList = async (req, res, next) => {
     try {
         let doc = await partsSchema.find({
-            age: { $gt: "-1" }
-        })
-        return res.status(200).json({ doc });
+            // age: { $gt: "0" },
+            age: {
+                $gt: "0"
+            }
+
+        }).limit(70)
+            .exec()
+        // console.log(doc[0]);
+        return res.status(200).json(doc);
     }
     catch (error) {
         throw error;

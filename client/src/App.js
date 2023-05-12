@@ -1,6 +1,7 @@
 // import './App.css';
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
-import HomePage from './pages/HomePage';
+import HomePage from "./pages/HomePage.jsx";
+import Navbar from './pages/Navbar';
 // import Analytics from './pages/Analytics';
 // import Dashboard from './pages/Dashboard';
 // import Tasks from './pages/Tasks';
@@ -20,6 +21,7 @@ function App() {
     <>
       <Router>
         {/* <Sidebar> */}
+        <Navbar />
         <Routes>
           <Route exact path="/" element={<HomePage />} />
           {/* <Route exact path="/analytics" element={<Analytics />} />
