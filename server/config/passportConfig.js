@@ -6,9 +6,11 @@ module.exports = function (passport) {
   passport.use(
     new localStrategy((username, password, done) => {
       User.findOne({ username: username }, (err, user) => {
+        // console.log(err);
         if (err) throw err;
         if (!user) return done(null, false);
         bcrypt.compare(password, user.password, (err, result) => {
+          console.log(err);
           if (err) throw err;
           if (result === true) {
             return done(null, user);
@@ -21,7 +23,7 @@ module.exports = function (passport) {
   );
 
   passport.serializeUser((user, cb) => {
-    cb(null, user.id);
+    cb(null, user._id);
   });
   passport.deserializeUser((id, cb) => {
     User.findOne({ _id: id }, (err, user) => {

@@ -31,6 +31,7 @@ exports.registerUser = async (req, res) => {
 
 exports.loginUser = (req, res, next) => {
     passport.authenticate("local", (err, user, info) => {
+        console.log(err);
         if (err) res.send({ status: "500", message: "Try Again Later" });
         else if (!user) return res.send({ status: "202", message: "wrong cred" });
         else {
@@ -46,7 +47,7 @@ exports.loginUser = (req, res, next) => {
 exports.filterParts = async (req, res, next) => {
     try {
         let doc = await partsSchema.find({
-            age: { $lt: "1" },
+            age: { $lt: "11" },
             condition: "Used",
             manufacturer: "Gulfstream",
             material_Composition: "Titanium"
@@ -57,3 +58,15 @@ exports.filterParts = async (req, res, next) => {
         throw error;
     }
 }
+exports.manufacturerList = async (req, res, next) => {
+    try {
+        let doc = await partsSchema.find({
+            age: { $gt: "-1" }
+        })
+        return res.status(200).json({ doc });
+    }
+    catch (error) {
+        throw error;
+    }
+}
+
