@@ -1,7 +1,10 @@
 // import './App.css';
-import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
+import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import HomePage from "./pages/HomePage.jsx";
-import Navbar from './pages/Navbar';
+import Navbar from "./pages/Navbar";
+import SignUp from "./pages/signInUp/signUp.js";
+import SignIn from "./pages/signInUp/signIn";
+
 // import Analytics from './pages/Analytics';
 // import Dashboard from './pages/Dashboard';
 // import Tasks from './pages/Tasks';
@@ -16,14 +19,18 @@ import Navbar from './pages/Navbar';
 // import Projects from './pages/Project/Projects';
 // import ProjectDetail from './pages/Project/ProjectDetail';
 
+
 function App() {
   return (
     <>
       <Router>
         {/* <Sidebar> */}
         <Navbar />
+
         <Routes>
           <Route exact path="/" element={<HomePage />} />
+          <Route exact path="/signUp" element={<SignUp/>} />
+          <Route exact path="/signin" element={<SignIn />} />
           {/* <Route exact path="/analytics" element={<Analytics />} />
             <Route exact path="/Tasks" element={<Tasks />} />
             <Route exact path="/messages" element={<Messages />} />
