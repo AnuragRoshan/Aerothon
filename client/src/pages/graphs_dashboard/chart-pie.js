@@ -52,7 +52,7 @@ const labelx = ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"];
 // };
 
 
-const PiecChart =()=> {
+const PieChart =()=> {
     const [data, setData] = useState({
         labels: labelx,
         datasets: [],
@@ -62,7 +62,7 @@ const PiecChart =()=> {
         const fetchData = async () => {
             const url= "https://jsonplaceholder.typicode.com/comments"
             const dataSetX= [20, 40, 70, 30, 80, 20];
-
+            const dataSet= [];
             fetch(url).then((data)=>{
                 console.log("Pie DAta", data);
                 const resPie= data.json();
@@ -70,7 +70,7 @@ const PiecChart =()=> {
             }).then((resPie)=>{
                 console.log("Pie Res", resPie);
                 for(const item of resPie){
-                    // dataSetX.push(item.postId);
+                    dataSet.push(item.postId);
                 }
 
                 console.log("Pie Data Set", dataSetX);
@@ -114,4 +114,4 @@ const PiecChart =()=> {
     // return (<div>Hello world</div>)
 }
 
-export default PiecChart;
+export default PieChart;

@@ -40,7 +40,7 @@ const options={
     },
 };
 
-const label= ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"];
+// const label= ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"];
 // const data= {
 //     labels: label,
 //     datasets:[
@@ -61,16 +61,16 @@ const label= ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oc
 
 const HorizontalChart=()=>{
     const [data, setData] = useState({
-      labels: label,
+      labels: [],
       datasets: [],
     });
 
     useEffect(()=>{
         const fetchData=()=>{
             const url="https://jsonplaceholder.typicode.com/comments"
-            const dataset1=[];  //recycle
-            const dataset2=[];  //remanufacture
-            const lableset=[];
+            const dataset1 = [10000, 20000, 30000, 40000, 50000];  //recycle
+            const dataset2 = [50000, 40000, 30000, 20000, 10000];  //remanufacture
+            const lableset=['Carbon footprint', 'Water Usage', 'Landfill Waste', 'Energy Consumption', 'Toxicity'];
             fetch(url).then((data)=>{
                 console.log("API data", data)
                 const res= data.json();
@@ -80,7 +80,8 @@ const HorizontalChart=()=>{
                 for(const d of res){
                     dataset1.push(d.id);
                     dataset2.push(d.postId);
-                    lableset.push(d.name);
+                    // lableset.push(d.name);
+
                 }
 
                 console.log("dataset1", dataset1);
@@ -90,13 +91,13 @@ const HorizontalChart=()=>{
                   labels: lableset,
                   datasets: [
                     {
-                      label: "dataset 1",
+                      label: "Recycled",
                       data: dataset1,
                       borderColor: "rgba(255,99,132)",
                       backgroundColor: "rgba(255,99,132,0.5)",
                     },
                     {
-                      label: "dataset 2",
+                      label: "New Product",
                       data: dataset2,
                       borderColor: "rgba(54,162,235,0.5)",
                       backgroundColor: "rgba(54,162,235, 0.5)",
