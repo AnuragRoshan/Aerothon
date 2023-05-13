@@ -7,7 +7,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-function Airlines() {
+function Recycle() {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedCheckboxes, setSelectedCheckboxes] = useState([]);
   let [datas, setData] = useState([]);
@@ -19,11 +19,11 @@ function Airlines() {
     water_usage_saved: "1000",
   });
 
-  console.log(filter.age);
+  // console.log(filter.age);
 
   const fetchData = async () => {
     const { data } = await axios.get(
-      `http://localhost:5000/filter2/` +
+      `http://localhost:5000/filter3/` +
         filter.age +
         "/" +
         filter.carbon_footprint_saved +
@@ -34,7 +34,7 @@ function Airlines() {
         "/" +
         filter.water_usage_saved
     );
-    console.log(data);
+    // console.log(data);
     setData(data);
   };
 
@@ -43,7 +43,7 @@ function Airlines() {
   }, [filter]);
   const handleInputs = (e) => {
     setfilter({ ...filter, [e.target.name]: e.target.value });
-    console.log(filter);
+    // console.log(filter);
   };
   // console.log(filter.landfill_waste_saved);
   // console.log(datas);
@@ -64,11 +64,11 @@ function Airlines() {
       setSelectedCheckboxes(
         selectedCheckboxes.filter((checkbox) => checkbox !== value)
       );
-      console.log(selectedCheckboxes);
+      // console.log(selectedCheckboxes);
     } else {
       // If it doesn't exist, add it to the array
       setSelectedCheckboxes([...selectedCheckboxes, value]);
-      console.log(selectedCheckboxes);
+      // console.log(selectedCheckboxes);
     }
   };
 
@@ -78,11 +78,11 @@ function Airlines() {
       window.scrollTo(0, 0);
     }, 3000);
     await axios
-      .post(`http://localhost:5000/sendRecycle2`, selectedCheckboxes)
+      .post(`http://localhost:5000/sendRecycle3`, selectedCheckboxes)
       .then((response) => {
+        // console.log(response);
         var message = response.data.msg;
         var status = response.status;
-        console.log(message);
 
         if (status === 200) {
           toast.success(`${message}`, {
@@ -110,7 +110,7 @@ function Airlines() {
   return (
     <div style={{ marginBlockStart: "2rem", paddingInline: "2rem" }}>
       <div style={{ fontFamily: "cursive", fontSize: "2rem" }}>
-        Hey Airlines
+        Hey Recycler
       </div>
       <div
         style={{
@@ -229,7 +229,7 @@ function Airlines() {
         <table className="table">
           <thead>
             <tr>
-              <th>ID</th>
+              <th>Serial No</th>
               <th>Part Name</th>
               <th>Life Remaining</th>
               <th>Condition</th>
@@ -242,7 +242,7 @@ function Airlines() {
             {/* {console.log(datas)} */}
             {records.map((d, i) => (
               <tr key={i}>
-                <td>{d.unique_id}</td>
+                <td>{i + 1}</td>
                 <td>{d.part}</td>
                 <td>{d.age}</td>
                 <td>{d.condition}</td>
@@ -304,7 +304,6 @@ function Airlines() {
               >
                 Send Parts For Recycle
               </button>
-
               <ToastContainer />
             </li>
           </ul>
@@ -330,4 +329,4 @@ function Airlines() {
   }
 }
 
-export default Airlines;
+export default Recycle;

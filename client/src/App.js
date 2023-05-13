@@ -1,11 +1,12 @@
 // import './App.css';
-import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
+import { Routes, Route, BrowserRouter as Router, Navigate } from "react-router-dom";
 import HomePage from "./pages/HomePage.jsx";
 import Navbar from "./pages/Navbar";
-import SignUp from "./pages/signInUp/signUp.js";
-import SignIn from "./pages/signInUp/signIn";
+import SignUp from "./pages/LoginSingup/SignUp.jsx";
+import SignIn from "./pages/LoginSingup/SignIn.jsx";
 import Dashboard from "./pages/dashboard/Dashboard.jsx";
-
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 // import Analytics from './pages/Analytics';
 // import Dashboard from './pages/Dashboard';
@@ -23,17 +24,35 @@ import Dashboard from "./pages/dashboard/Dashboard.jsx";
 
 
 function App() {
+
+  const [user, setUser] = useState(null);
+  const fetchData = async () => {
+    const { data } = await axios.get(
+      `http://localhost:5000/logedinuser/`, { withCredentials: true }
+    );
+    // console.log(data.user);
+    setUser(data.user);
+  };
+
+  console.log(user);
+  useEffect(() => {
+    fetchData();
+  }, [])
+
+
   return (
     <>
       <Router>
         {/* <Sidebar> */}
-        <Navbar />
+        <Navbar user={user} />
 
         <Routes>
-          <Route exact path="/" element={<HomePage />} />
-          <Route exact path="/signUp" element={<SignUp/>} />
-          <Route exact path="/signin" element={<SignIn />} />
+          <Route exact path="/" element={<HomePage user={user} />} />
+          {/* <Route exact path="/signUp" element={<SignUp />} /> */}
+          <Route exact path="/signup" element={user ? <Navigate to="/" /> : <SignUp />} />
+          <Route exact path="/signin" element={user ? <Navigate to="/" /> : <SignIn />} />
           <Route exact path="/dashboard" element={<Dashboard />} />
+
           {/* <Route exact path="/analytics" element={<Analytics />} />
             <Route exact path="/Tasks" element={<Tasks />} />
             <Route exact path="/messages" element={<Messages />} />

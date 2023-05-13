@@ -1,16 +1,16 @@
-import React from 'react'
+import React from "react";
 // import DoughnutChart from '../graphs_dashboard/chart-doughnut'
 // import BarChart from '../graphs_dashboard/chart-horizontal'
 // import PieChart from '../graphs_dashboard/chart-pie'
 import stagged from '../graphs_dashboard/stagged'
-import '../dashboard/Dashboard.css'
+import "../dashboard/Dashboard.css";
 
-import DoughnutAircraftModelf from '../graphs_dashboard/fuselage/pie-aircraftModel'
-import DoughnutLocationf from '../graphs_dashboard/fuselage/pie-location'
-import DoughnutManufacturerf from '../graphs_dashboard/fuselage/pie-manufacturer'
-import PieMaterialf from '../graphs_dashboard/fuselage/pie-material'
-import PieUsecasef from '../graphs_dashboard/fuselage/pie-usecase'
-import BarChartf from '../graphs_dashboard/fuselage/bar-newRecycle'
+import DoughnutAircraftModelf from "../graphs_dashboard/fuselage/pie-aircraftModel";
+import DoughnutLocationf from "../graphs_dashboard/fuselage/pie-location";
+import DoughnutManufacturerf from "../graphs_dashboard/fuselage/pie-manufacturer";
+import PieMaterialf from "../graphs_dashboard/fuselage/pie-material";
+import PieUsecasef from "../graphs_dashboard/fuselage/pie-usecase";
+import BarChartf from "../graphs_dashboard/fuselage/bar-newRecycle";
 
 import DoughnutAircraftModelA from "../graphs_dashboard/avionics/pie-aircraftModel";
 import DoughnutLocationA from "../graphs_dashboard/avionics/pie-location";
@@ -41,10 +41,8 @@ import PieUsecaseW from "../graphs_dashboard/wings/pie-usecase";
 import BarChartW from "../graphs_dashboard/wings/bar-newRecycle";
 
 
-import StaggedCHart from '../graphs_dashboard/stagged'
-import LineChart from '../graphs_dashboard/lineChart'
-
-
+import StaggedCHart from "../graphs_dashboard/stagged";
+import LineChart from "../graphs_dashboard/lineChart";
 
 const Dashboard = () => {
   return (
@@ -61,54 +59,101 @@ const Dashboard = () => {
             <div className='bar' style={{flex:"1"}}><BarChartf/></div>
         </div>
 
-            <h1 className="title">Avionics</h1>
-        <div style={{display:"flex", flexDirection:"row", flexWrap:"wrap"}}>
-            <div className='pie' style={{flex:"1", flex :"1"}}><PieUsecaseA/></div>
-            <div className='pie' style={{flex:"1", flex :"1"}}><PieMaterialA/></div>
-            <div className='doughNut' style={{flex:"1", flex :"1"}}><DoughnutManufacturerA/></div>
-            <div className='doughNut' style={{flex:"1", flex :"1"}}><DoughnutLocationA/></div>
-            <div className='doughNut' style={{flex:"1", flex :"1"}}><DoughnutAircraftModelA/></div>
-            <div className='bar' style={{flex:"1", flex :"1"}}><BarChartA/></div>
+      <h1 className="title">Avionics</h1>
+      <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
+        <div className="pie" style={{ flex: "1", flex: "1" }}>
+          <PieUsecaseA />
         </div>
+        <div className="pie" style={{ flex: "1", flex: "1" }}>
+          <PieMaterialA />
+        </div>
+        <div className="doughNut" style={{ flex: "1", flex: "1" }}>
+          <DoughnutManufacturerA />
+        </div>
+        <div className="doughNut" style={{ flex: "1", flex: "1" }}>
+          <DoughnutLocationA />
+        </div>
+        <div className="doughNut" style={{ flex: "1", flex: "1" }}>
+          <DoughnutAircraftModelA />
+        </div>
+        <div className="bar" style={{ flex: "1", flex: "1" }}>
+          <BarChartA />
+        </div>
+      </div>
 
-            <h1 className="title">Engine</h1>
-        <div style={{display:"flex", flexDirection:"row", flexWrap:"wrap"}}>
-            <div className='pie' style={{flex:"1", flex :"1"}}><PieUsecaseE/></div>
-            <div className='pie' style={{flex:"1", flex :"1"}}><PieMaterialE/></div>
-            <div className='doughNut' style={{flex:"1", flex :"1"}}><DoughnutManufacturerE/></div>
-            <div className='doughNut' style={{flex:"1", flex :"1"}}><DoughnutLocationE/></div>
-            <div className='doughNut' style={{flex:"1", flex :"1"}}><DoughnutAircraftModelE/></div>
-            <div className='bar' style={{flex:"1", flex :"1"}}><BarChartE/></div>
+      <h1 className="title">Engine</h1>
+      <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
+        <div className="pie" style={{ flex: "1", flex: "1" }}>
+          <PieUsecaseE />
         </div>
+        <div className="pie" style={{ flex: "1", flex: "1" }}>
+          <PieMaterialE />
+        </div>
+        <div className="doughNut" style={{ flex: "1", flex: "1" }}>
+          <DoughnutManufacturerE />
+        </div>
+        <div className="doughNut" style={{ flex: "1", flex: "1" }}>
+          <DoughnutLocationE />
+        </div>
+        <div className="doughNut" style={{ flex: "1", flex: "1" }}>
+          <DoughnutAircraftModelE />
+        </div>
+        <div className="bar" style={{ flex: "1", flex: "1" }}>
+          <BarChartE />
+        </div>
+      </div>
 
-            <h1 className="title">Landing Gear</h1>
-        <div style={{display:"flex", flexDirection:"row", flexWrap:"wrap"}}>
-            <div className='pie' style={{flex:"1", flex :"1"}}><PieUsecaseL/></div>
-            <div className='pie' style={{flex:"1", flex :"1"}}><PieMaterialL/></div>
-            <div className='doughNut' style={{flex:"1", flex :"1"}}><DoughnutManufacturerL/></div>
-            <div className='doughNut' style={{flex:"1", flex :"1"}}><DoughnutLocationL/></div>
-            <div className='doughNut' style={{flex:"1", flex :"1"}}><DoughnutAircraftModelL/></div>
-            <div className='bar' style={{flex:"1", flex :"1"}}><BarChartL/></div>
+      <h1 className="title">Landing Gear</h1>
+      <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
+        <div className="pie" style={{ flex: "1", flex: "1" }}>
+          <PieUsecaseL />
         </div>
+        <div className="pie" style={{ flex: "1", flex: "1" }}>
+          <PieMaterialL />
+        </div>
+        <div className="doughNut" style={{ flex: "1", flex: "1" }}>
+          <DoughnutManufacturerL />
+        </div>
+        <div className="doughNut" style={{ flex: "1", flex: "1" }}>
+          <DoughnutLocationL />
+        </div>
+        <div className="doughNut" style={{ flex: "1", flex: "1" }}>
+          <DoughnutAircraftModelL />
+        </div>
+        <div className="bar" style={{ flex: "1", flex: "1" }}>
+          <BarChartL />
+        </div>
+      </div>
 
-            <h1 className="title">Wings</h1>
-        <div style={{display:"flex", flexDirection:"row", flexWrap:"wrap"}}>
-            <div className='pie' style={{flex:"1", flex :"1"}}><PieUsecaseW/></div>
-            <div className='pie' style={{flex:"1", flex :"1"}}><PieMaterialW/></div>
-            <div className='doughNut' style={{flex:"1", flex :"1"}}><DoughnutManufacturerW/></div>
-            <div className='doughNut' style={{flex:"1", flex :"1"}}><DoughnutLocationW/></div>
-            <div className='doughNut' style={{flex:"1", flex :"1"}}><DoughnutAircraftModelW/></div>
-            <div className='bar' style={{flex:"1", flex :"1"}}><BarChartW/></div>
+      <h1 className="title">Wings</h1>
+      <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
+        <div className="pie" style={{ flex: "1", flex: "1" }}>
+          <PieUsecaseW />
         </div>
+        <div className="pie" style={{ flex: "1", flex: "1" }}>
+          <PieMaterialW />
+        </div>
+        <div className="doughNut" style={{ flex: "1", flex: "1" }}>
+          <DoughnutManufacturerW />
+        </div>
+        <div className="doughNut" style={{ flex: "1", flex: "1" }}>
+          <DoughnutLocationW />
+        </div>
+        <div className="doughNut" style={{ flex: "1", flex: "1" }}>
+          <DoughnutAircraftModelW />
+        </div>
+        <div className="bar" style={{ flex: "1", flex: "1" }}>
+          <BarChartW />
+        </div>
+      </div>
 
       {/* <div className="doughNut">      <DoughnutChart />      </div>
       <div className="bar">        <BarChart />      </div>
       <div className="pie">        <PieChart />      </div> */}
 
 
-
     </div>
   );
-}
+};
 
-export default Dashboard
+export default Dashboard;
