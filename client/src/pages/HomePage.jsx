@@ -1,12 +1,14 @@
 import React from "react";
 import Manufacturer from "./Manufacturer";
 import Airlines from "./Airlines";
+import Recycle from "./Recycle";
 
 const homePage = () => {
   return (
     <div>
-      <Manufacturer />
+      {/* <Manufacturer /> */}
       {/* <Airlines /> */}
+      <Recycle />
     </div>
   );
 };
