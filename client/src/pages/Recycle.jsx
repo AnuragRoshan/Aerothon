@@ -7,7 +7,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-function Manufacturer() {
+function Recycle() {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedCheckboxes, setSelectedCheckboxes] = useState([]);
   let [datas, setData] = useState([]);
@@ -23,7 +23,7 @@ function Manufacturer() {
 
   const fetchData = async () => {
     const { data } = await axios.get(
-      `http://localhost:5000/filter/` +
+      `http://localhost:5000/filter3/` +
         filter.age +
         "/" +
         filter.carbon_footprint_saved +
@@ -78,8 +78,9 @@ function Manufacturer() {
       window.scrollTo(0, 0);
     }, 3000);
     await axios
-      .post(`http://localhost:5000/sendRecycle`, selectedCheckboxes)
+      .post(`http://localhost:5000/sendRecycle3`, selectedCheckboxes)
       .then((response) => {
+        console.log(response);
         var message = response.data.msg;
         var status = response.status;
 
@@ -109,7 +110,7 @@ function Manufacturer() {
   return (
     <div style={{ marginBlockStart: "2rem", paddingInline: "2rem" }}>
       <div style={{ fontFamily: "cursive", fontSize: "2rem" }}>
-        Hey Manufacturer
+        Hey Recycler
       </div>
       <div
         style={{
@@ -228,7 +229,7 @@ function Manufacturer() {
         <table className="table">
           <thead>
             <tr>
-              <th>ID</th>
+              <th>Serial No</th>
               <th>Part Name</th>
               <th>Life Remaining</th>
               <th>Condition</th>
@@ -241,7 +242,7 @@ function Manufacturer() {
             {/* {console.log(datas)} */}
             {records.map((d, i) => (
               <tr key={i}>
-                <td>{d.unique_id}</td>
+                <td>{i + 1}</td>
                 <td>{d.part}</td>
                 <td>{d.age}</td>
                 <td>{d.condition}</td>
@@ -303,6 +304,7 @@ function Manufacturer() {
               >
                 Send Parts For Recycle
               </button>
+              <ToastContainer />
             </li>
           </ul>
         </nav>
@@ -327,4 +329,4 @@ function Manufacturer() {
   }
 }
 
-export default Manufacturer;
+export default Recycle;

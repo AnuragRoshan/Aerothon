@@ -6,7 +6,6 @@ import SignUp from "./pages/signInUp/signUp.js";
 import SignIn from "./pages/signInUp/signIn";
 import Dashboard from "./pages/dashboard/Dashboard.jsx";
 
-
 // import Analytics from './pages/Analytics';
 // import Dashboard from './pages/Dashboard';
 // import Tasks from './pages/Tasks';
@@ -34,6 +33,7 @@ function App() {
           <Route exact path="/signUp" element={<SignUp/>} />
           <Route exact path="/signin" element={<SignIn />} />
           <Route exact path="/dashboard" element={<Dashboard />} />
+
           {/* <Route exact path="/analytics" element={<Analytics />} />
             <Route exact path="/Tasks" element={<Tasks />} />
             <Route exact path="/messages" element={<Messages />} />
