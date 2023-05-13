@@ -1,26 +1,37 @@
-import { useEffect, useState } from "react";
-
+import React from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
-  BarElement,
+  PointElement,
+  LineElement,
   Title,
   Tooltip,
   Legend,
 } from "chart.js";
-import { Bar } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
+import { useEffect, useState } from "react";
 
 ChartJS.register(
   CategoryScale,
   LinearScale,
-  BarElement,
+  PointElement,
+  LineElement,
   Title,
   Tooltip,
   Legend
 );
 
 const options = {
+  scales: {
+    y: {
+      min: 40,
+      max: 100,
+      ticks: {
+        stepSize: 1,
+      },
+    },
+  },
   indexAxis: "x",
   elements: {
     bar: {
@@ -29,37 +40,19 @@ const options = {
     },
   },
   responsive: true,
+
   plugins: {
     legend: {
-      position: "right",
+      position: "bottom",
     },
     title: {
       display: true,
-      text: "Recycle vs New Product Comparison",
+      text: "Remanufacturing vs Recycling",
     },
   },
 };
 
-// const label= ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"];
-// const data= {
-//     labels: label,
-//     datasets:[
-//         {
-//             label:'dataset 1',
-//             data:[10,20,30,40,50,60,70,80,90,100],
-//             borderColor: 'rgba(255,99,132)',
-//             backgroundColor: 'rgba(255,99,132,0.5)',
-//         },
-//         {
-//             label:'dataset 2',
-//             data:[100,90,80,70,60,50,40,30,20,10],
-//             borderColor: 'rgba(54,162,235,0.5)',
-//             backgroundColor: 'rgba(54,162,235, 0.5)',
-//         },
-//     ],
-// }
-
-const BarNewRecyclef = () => {
+const LineChart = () => {
   const [data, setData] = useState({
     labels: [],
     datasets: [],
@@ -68,14 +61,35 @@ const BarNewRecyclef = () => {
   useEffect(() => {
     const fetchData = () => {
       const url = "https://jsonplaceholder.typicode.com/comments";
-      const dataset1 = [221403, 1215772, 223963, 602724, 6107.637594]; //recycle
-      const dataset2 = [1119649, 10946704, 1138019, 5497120, 10937.80509]; //remanufacture
+      const dataset1 = [
+        72.100013193403 + Math.random() * 20,
+        72.10601647 + Math.random() * 20,
+        72.5406581 + Math.random() * 20,
+        72.520788911 + Math.random() * 20,
+        72.5005169 + Math.random() * 20,
+      ]; //recycle
+
+      const dataset2 = [
+        48.860107281 + Math.random() * 10,
+        49.706679193 + Math.random() * 10,
+        49.9318234683 + Math.random() * 10,
+        50.774421265 + Math.random() * 10,
+        49.42116709 + Math.random() * 10,
+      ]; //remanufacture
+
+    //   const dataset1 = [
+    //     72.100013193403, 72.10601647, 72.5406581, 72.520788911, 72.5005169,
+    //   ]; //recycle
+
+    //   const dataset2 = [
+    //     48.860107281, 49.706679193, 49.9318234683, 50.774421265, 49.42116709,
+    //   ]; //remanufacture
       const lableset = [
-        "Carbon footprint",
-        "Water Usage",
-        "Landfill Waste",
-        "Energy Consumption",
-        "Toxicity",
+        "Avionics",
+        "Engine",
+        "Fuselage",
+        "Landing Gear",
+        "Wings",
       ];
       fetch(url)
         .then((data) => {
@@ -98,13 +112,13 @@ const BarNewRecyclef = () => {
             labels: lableset,
             datasets: [
               {
-                label: "Recycled",
+                label: "Recycle rate",
                 data: dataset1,
                 borderColor: "rgba(255,99,132)",
                 backgroundColor: "rgba(255,99,132,0.5)",
               },
               {
-                label: "New Product",
+                label: "Remanufacturing potential %",
                 data: dataset2,
                 borderColor: "rgba(54,162,235,0.5)",
                 backgroundColor: "rgba(54,162,235, 0.5)",
@@ -118,8 +132,8 @@ const BarNewRecyclef = () => {
     };
     fetchData();
   }, []);
-  return <Bar data={data} options={options} />;
+  return <Line data={data} options={options} />;
   // return (<div>Hello</div>)
 };
 
-export default BarNewRecyclef;
+export default LineChart;

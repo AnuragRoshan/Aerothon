@@ -14,6 +14,8 @@ router.get("/manufList/:vari", userController.manufacturerList);
 router.post("/sendRecycle", userController.sendRecycle);
 router.post("/sendRecycle2", userController.sendRecycle2);
 router.post("/sendRecycle3", userController.sendRecycle3);
+router.get("/logedinuser", userController.userDetails);
+router.delete("/logout", userController.logout);
 
 
 

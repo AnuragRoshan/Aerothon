@@ -7,7 +7,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-function Manufacturer() {
+function Manufacturer(user = { user }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedCheckboxes, setSelectedCheckboxes] = useState([]);
   let [datas, setData] = useState([]);
@@ -303,6 +303,7 @@ function Manufacturer() {
               >
                 Send Parts For Recycle
               </button>
+              <ToastContainer />
             </li>
           </ul>
         </nav>

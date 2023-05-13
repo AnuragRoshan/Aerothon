@@ -9,7 +9,7 @@ const morgan = require("morgan");
 const app = express();
 const dotenv = require("dotenv")
 const routes = require("./api/routes/index")
-// dotenv configuration
+const router = require("express").Router();
 dotenv.config();
 
 
@@ -46,7 +46,10 @@ require("./config/passportConfig")(passport);
 //Middleware End
 
 //Route
-
+router.get("/logout", (req, res) => {
+    req.logout();
+    res.redirect("/");
+});
 app.use(routes);
 
 

@@ -178,7 +178,7 @@ exports.sendRecycle = async (req, res, next) => {
             }
             console.log(i);
             console.log(document);
-
+            partsSchema.deleteOne({ _id: i });
 
 
             const recyclableProduct = new recyclablePartsSchema({
@@ -230,6 +230,7 @@ exports.sendRecycle2 = async (req, res, next) => {
             console.log(document);
 
 
+            partsSchema.deleteOne({ _id: i });
 
             const recyclableProduct = new recyclablePartsSchema({
                 part: document.part,
@@ -278,6 +279,7 @@ exports.sendRecycle3 = async (req, res, next) => {
             }
             console.log(document);
 
+            recyclablePartsSchema.deleteOnea({ _id: i });
 
 
             const recycledProduct = new recycledPartsSchema({
@@ -311,6 +313,20 @@ exports.sendRecycle3 = async (req, res, next) => {
     }
 };
 
+exports.userDetails = (req, res) => {
+    res.send(req.user); // The req.user stores the entire user that has been authenticated inside of it.
+    console.log(req.user);
+};
+exports.logout = (req, res) => {
+    req.logout(function (err) {
+        if (err) { return next(err); }
+        res.redirect('/');
+    });
+};
+// exports.userDetails = (req, res) => {
+//     req.logout(); // Passport's logout function
+//     // Redirect the user to the home page or any other desired page;
+// };
 
 
 
