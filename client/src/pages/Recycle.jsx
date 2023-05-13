@@ -19,7 +19,7 @@ function Recycle() {
     water_usage_saved: "1000",
   });
 
-  console.log(filter.age);
+  // console.log(filter.age);
 
   const fetchData = async () => {
     const { data } = await axios.get(
@@ -34,7 +34,7 @@ function Recycle() {
         "/" +
         filter.water_usage_saved
     );
-    console.log(data);
+    // console.log(data);
     setData(data);
   };
 
@@ -43,7 +43,7 @@ function Recycle() {
   }, [filter]);
   const handleInputs = (e) => {
     setfilter({ ...filter, [e.target.name]: e.target.value });
-    console.log(filter);
+    // console.log(filter);
   };
   // console.log(filter.landfill_waste_saved);
   // console.log(datas);
@@ -64,11 +64,11 @@ function Recycle() {
       setSelectedCheckboxes(
         selectedCheckboxes.filter((checkbox) => checkbox !== value)
       );
-      console.log(selectedCheckboxes);
+      // console.log(selectedCheckboxes);
     } else {
       // If it doesn't exist, add it to the array
       setSelectedCheckboxes([...selectedCheckboxes, value]);
-      console.log(selectedCheckboxes);
+      // console.log(selectedCheckboxes);
     }
   };
 
@@ -80,7 +80,7 @@ function Recycle() {
     await axios
       .post(`http://localhost:5000/sendRecycle3`, selectedCheckboxes)
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         var message = response.data.msg;
         var status = response.status;
 

@@ -3,11 +3,12 @@ import "../Assets/css/login.css";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 // import { FaEnvelope, FaLock, FaLockOpen, FaUser } from "react-icons/fa";
 
 const Settings = () => {
   const [user, setUser] = useState({});
-
+  const navigate = useNavigate();
   const handleInputs = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
     console.log(user);
@@ -15,6 +16,7 @@ const Settings = () => {
 
   const submitForm = async () => {
     // alert("Submitted");
+    navigate("/");
     await axios
       .post(`http://localhost:5000/login`, user, {
         withCredentials: true,
@@ -65,15 +67,15 @@ const Settings = () => {
       <div>
         <div className="login-form-top display-flex-row">
           <div className="login-form-right">
-            <div className="">
-              <img src={img1} alt="" srcset="" />
-            </div>
+            {/* <div className="">
+              <img src={img1} style={{ width: "50xrem" }} alt="" srcset="" />
+            </div> */}
             <div className="login-new-user">
-              New User ?<a href="">Sign Up</a>
+              {/* New User ?<a href="">Sign Up</a> */}
             </div>
           </div>
           <div className="login-form-right">
-            <div className="login-title">
+            <div className="login-title" style={{ textAlign: "center" }}>
               <h2>LOGIN</h2>
             </div>
             <div className="login-form">
@@ -101,17 +103,12 @@ const Settings = () => {
               <button
                 type="submit"
                 className="btn"
+                style={{ backgroundColor: "grey" }}
                 onClick={() => submitForm()}
               >
                 Login
               </button>
               <ToastContainer className="toastifyCss" />
-            </div>
-            <div className="display-flex-row social-section">
-              <div className="social">or login with</div>
-              <div className=" social">A</div>
-              <div className=" social">B</div>
-              <div className=" social">N</div>
             </div>
           </div>
         </div>

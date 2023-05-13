@@ -6,7 +6,7 @@
 }
 .login-form-top {
   box-shadow: 0 0 6px rgb(0 0 0 / 30%);
-
+  width: "5rem";
   background-color: white;
 
   padding-block: 4rem;
@@ -52,7 +52,7 @@
   margin-block-start: 2.4rem;
   text-align: center;
 }
-.btn {
+/* .btn {
   margin-top: 2rem;
   cursor: pointer;
   width: 10vw;
@@ -62,7 +62,7 @@
   border: none;
   font-size: large;
   color: white;
-}
+} */
 .social-section {
   margin-top: 2rem;
 }
