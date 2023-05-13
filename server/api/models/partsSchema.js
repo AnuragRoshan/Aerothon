@@ -4,7 +4,6 @@ const partsSchema = mongoose.Schema(
     {
         part: {
             type: String,
-            required: true
         },
         material_Composition: {
             type: String

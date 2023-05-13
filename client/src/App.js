@@ -2,6 +2,8 @@
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
 import HomePage from "./pages/HomePage.jsx";
 import Navbar from './pages/Navbar';
+import SignIn from './pages/LoginSingup/SignIn.jsx';
+import SignUp from "./pages/LoginSingup/SignUp.jsx"
 // import Analytics from './pages/Analytics';
 // import Dashboard from './pages/Dashboard';
 // import Tasks from './pages/Tasks';
@@ -24,6 +26,8 @@ function App() {
         <Navbar />
         <Routes>
           <Route exact path="/" element={<HomePage />} />
+          <Route exact path="/signin" element={<SignIn />} />
+          <Route exact path="/signup" element={<SignUp />} />
           {/* <Route exact path="/analytics" element={<Analytics />} />
             <Route exact path="/Tasks" element={<Tasks />} />
             <Route exact path="/messages" element={<Messages />} />
