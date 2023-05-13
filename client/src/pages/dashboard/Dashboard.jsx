@@ -2,6 +2,7 @@ import React from 'react'
 // import DoughnutChart from '../graphs_dashboard/chart-doughnut'
 // import BarChart from '../graphs_dashboard/chart-horizontal'
 // import PieChart from '../graphs_dashboard/chart-pie'
+import stagged from '../graphs_dashboard/stagged'
 import '../dashboard/Dashboard.css'
 
 import DoughnutAircraftModelf from '../graphs_dashboard/fuselage/pie-aircraftModel'
@@ -40,9 +41,16 @@ import PieUsecaseW from "../graphs_dashboard/wings/pie-usecase";
 import BarChartW from "../graphs_dashboard/wings/bar-newRecycle";
 
 
+import StaggedCHart from '../graphs_dashboard/stagged'
+import LineChart from '../graphs_dashboard/lineChart'
+
+
+
 const Dashboard = () => {
   return (
     <div className="container">
+    <div className="stagged">        <StaggedCHart />      </div>
+    <div className="line">        <LineChart />      </div>
             <h1 className="title">Fuselage</h1>
         <div style={{display:"flex", flexDirection:"row", flexWrap:"wrap"}}>
             <div className='pie' style={{flex:"1"}}><PieUsecasef/></div>
@@ -96,6 +104,7 @@ const Dashboard = () => {
       {/* <div className="doughNut">      <DoughnutChart />      </div>
       <div className="bar">        <BarChart />      </div>
       <div className="pie">        <PieChart />      </div> */}
+
 
 
     </div>

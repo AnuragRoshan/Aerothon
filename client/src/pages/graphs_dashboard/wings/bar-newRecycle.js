@@ -68,8 +68,8 @@ const BarNewRecycleW = () => {
   useEffect(() => {
     const fetchData = () => {
       const url = "https://jsonplaceholder.typicode.com/comments";
-      const dataset1 = [10000, 20000, 30000, 40000, 50000]; //recycle
-      const dataset2 = [50000, 40000, 30000, 20000, 10000]; //remanufacture
+      const dataset1 = [221403, 1215772, 223963, 602724, 6107.637594]; //recycle
+      const dataset2 = [1119649, 10946704, 1138019, 5497120, 10937.80509]; //remanufacture
       const lableset = [
         "Carbon footprint",
         "Water Usage",
