@@ -22,6 +22,7 @@ const First = () => {
         var message = response.data.msg;
         var status = response.status;
         console.log(message);
+
         if (status === 200) {
           toast.success(`${message}`, {
             position: "top-center",
@@ -31,6 +32,7 @@ const First = () => {
             draggable: true,
             textAlign: "center",
           });
+
           // window.location.reload();
         } else if (status === 202) {
           toast.warn(`${message}`, {
@@ -82,7 +84,7 @@ const First = () => {
           type="text"
           class="login-input"
           name="userType"
-          placeholder="User Type (Manufacturer/AirLines/Recycling)"
+          placeholder="User Type (manufacturer/airlines/recycling)"
           onChange={(e) => handleInputs(e)}
         />
       </div>
@@ -122,8 +124,7 @@ const SignIn = () => {
             <div className="">
               <img src={img1} style={{ width: "40rem" }} alt="" srcset="" />
             </div>
-            <div className="login-new-user">
-            </div>
+            <div className="login-new-user"></div>
           </div>
         </div>
       </div>

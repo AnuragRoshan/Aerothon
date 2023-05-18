@@ -2,7 +2,6 @@ import React from "react";
 import Manufacturer from "./Manufacturer";
 import Airlines from "./Airlines";
 import Recycle from "./Recycle";
-import SignIn from "./LoginSingup/SignIn";
 import SignUp from "./LoginSingup/SignUp";
 
 const homePage = ({ user }) => {
