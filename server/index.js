@@ -46,10 +46,7 @@ require("./config/passportConfig")(passport);
 //Middleware End
 
 //Route
-router.get("/logout", (req, res) => {
-    req.logout();
-    res.redirect("/");
-});
+
 app.use(routes);
 
 

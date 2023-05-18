@@ -34,7 +34,7 @@ function App() {
     setUser(data.user);
   };
 
-  console.log(user);
+  // console.log(user);
   useEffect(() => {
     fetchData();
   }, [])

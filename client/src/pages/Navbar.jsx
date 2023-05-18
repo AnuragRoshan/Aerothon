@@ -1,25 +1,58 @@
 import axios from "axios";
 import React from "react";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Navbar = ({ user }) => {
+  const navigate = useNavigate();
   // console.log(user);
   // const user = true;
   const handleInputs = async () => {
-    // setfilter({ ...filter, [e.target.name]: e.target.value });
-    // console.log("OUT");
-    // const { data } = await axios.get(`http://localhost:5000/logout`);
-    // console.log(data);
-    sessionStorage.clear();
+    await axios
+      .post("http://localhost:5000/logout", null, {
+        withCredentials: true,
+      })
+      .then((response) => {
+        // var message = response.data.msg;
+        // var status = response.status;
+        var message = response.data.msg;
+        var status = response.status;
 
-    window.location.reload();
-    // setUser(null);
+        if (status === 200) {
+          toast.success(`${message}`, {
+            position: "top-center",
+            autoClose: 2000,
+            pauseOnHover: false,
+            pauseOnFocusLoss: false,
+            draggable: true,
+            textAlign: "center",
+          });
+          // window.location.reload();
+        } else if (status === 202) {
+          toast.warn(`${message}`, {
+            position: "top-center",
+            autoClose: 2000,
+            pauseOnHover: false,
+            pauseOnFocusLoss: false,
+            draggable: true,
+            textAlign: "center",
+          });
+        }
+        console.log(response);
+        setTimeout(() => {
+          window.location.reload();
+        }, 2001);
+      });
   };
   return (
     <>
       <nav
         className="navbar navbar-expand-lg navbar-light"
-        style={{ backgroundColor: "rgb(232, 227, 227)" }}
+        style={{
+          backgroundColor: "rgb(232, 227, 227)",
+          boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
+        }}
       >
         <div className="container">
           <a
@@ -60,11 +93,20 @@ const Navbar = ({ user }) => {
                   Dashboard
                 </a>
               </li>
+              <li className="nav-item">
+                <a
+                  className="nav-link"
+                  href="/Signin"
+                  style={{ marginTop: "1rem" }}
+                >
+                  Sign Up
+                </a>
+              </li>
               {user ? (
                 <>
                   {" "}
                   <li className="nav-item">
-                    <a className="nav-link" id="sign" href="/">
+                    <a className="nav-link" id="sign" href="#">
                       <button
                         onClick={handleInputs}
                         style={{
@@ -77,6 +119,8 @@ const Navbar = ({ user }) => {
                         {/* {user ? <>Sign Out</> : <>Sign In</>} */}
                         Sign Out
                       </button>
+
+                      <ToastContainer />
                     </a>
                   </li>
                 </>
