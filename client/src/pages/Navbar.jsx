@@ -52,16 +52,17 @@ const Navbar = ({ user }) => {
         style={{
           backgroundColor: "rgb(232, 227, 227)",
           boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
+          height: "5rem",
+          fontFamily: "Montserrat",
         }}
       >
         <div className="container">
           <a
             className="navbar-brand"
-            href="#"
+            href="/home"
             style={{
               fontSize: "3rem",
               fontWeight: "600",
-              fontFamily: "sans-serif",
             }}
           >
             Airbus
@@ -80,7 +81,11 @@ const Navbar = ({ user }) => {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                <a className="nav-link" href="/" style={{ marginTop: "1rem" }}>
+                <a
+                  className="nav-link"
+                  href="/home"
+                  style={{ marginTop: "1rem" }}
+                >
                   Home
                 </a>
               </li>

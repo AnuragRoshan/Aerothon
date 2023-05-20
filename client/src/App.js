@@ -7,6 +7,7 @@ import SignIn from "./pages/LoginSingup/SignIn.jsx";
 import Dashboard from "./pages/dashboard/Dashboard.jsx";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Landing from "./pages/Landing.jsx";
 
 // import Analytics from './pages/Analytics';
 // import Dashboard from './pages/Dashboard';
@@ -47,24 +48,12 @@ function App() {
         <Navbar user={user} />
 
         <Routes>
-          <Route exact path="/" element={<HomePage user={user} />} />
+          <Route exact path="/home" element={<HomePage user={user} />} />
+          <Route exact path="/" element={<Landing />} />
           {/* <Route exact path="/signUp" element={<SignUp />} /> */}
-          <Route exact path="/signup" element={user ? <Navigate to="/" /> : <SignUp />} />
-          <Route exact path="/signin" element={user ? <Navigate to="/" /> : <SignIn />} />
+          <Route exact path="/signup" element={user ? <Navigate to="/home" /> : <SignUp />} />
+          <Route exact path="/signin" element={user ? <Navigate to="/home" /> : <SignIn />} />
           <Route exact path="/dashboard" element={<Dashboard />} />
-
-          {/* <Route exact path="/analytics" element={<Analytics />} />
-            <Route exact path="/Tasks" element={<Tasks />} />
-            <Route exact path="/messages" element={<Messages />} />
-            <Route exact path="/projects" element={<Projects />} />
-            <Route exact path="/saved" element={<Saved />} />
-            <Route exact path="/settings" element={<Settings />} />
-            <Route exact path="/users" element={<Users />} />
-            <Route exact path="/signup" element={<SignUp />} />
-            <Route exact path="/signin" element={<SignIn />} />
-            <Route path="/project/modify" element={<ProjectForm />} />
-            <Route path="/project/detail" element={<ProjectDetail />} />
-            <Route exact path="*" element={<>Not Found</>} /> */}
         </Routes>
         {/* </Sidebar> */}
       </Router>

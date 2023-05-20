@@ -115,8 +115,14 @@ function Recycle({ user }) {
   };
 
   return (
-    <div style={{ marginBlockStart: "2rem", paddingInline: "2rem" }}>
-      <div style={{ fontFamily: "cursive", fontSize: "2rem" }}>
+    <div
+      style={{
+        marginBlockStart: "2rem",
+        paddingInline: "2rem",
+        fontFamily: "Montserrat",
+      }}
+    >
+      <div style={{ fontFamily: "Montserrat", fontSize: "2rem" }}>
         {user.companyName}
       </div>
       <div
