@@ -31,15 +31,18 @@ The aviation industry is under increasing pressure to reduce its environmental i
 - Regular Security Audits: Periodic security audits and vulnerability assessments are conducted to identify and address any potential security weaknesses or vulnerabilities using openvas.
 ## UI
 
+### Landing Page
+![SignUp_Page](client/public/Diagrams/landing.jpg)
+
 ### SignUp page
 ![SignUp_Page](client/public/Diagrams/SignUp.jpg)
 
-## Dash Board Page
+### Dash Board Page
 ![DashBoard_Page](client/public/Diagrams/Dash1.jpg)
 ![DashBoard_Page](client/public/Diagrams/dash2.jpg)
 ![DashBoard_Page](client/public/Diagrams/dash3.jpg)
 
-## Home Page
+### Home Page
 ![Home_Page](client/public/Diagrams/homepage.jpg)
 
 ## Diagrams
