@@ -14,10 +14,16 @@ const homePage = ({ user }) => {
         <>
           {t.userType == "manufacturer" ? (
             <>
-              <Manufacturer />
+              <Manufacturer user={user} />
             </>
           ) : (
-            <>{t.userType == "airline" ? <Airlines /> : <Recycle />}</>
+            <>
+              {t.userType == "airline" ? (
+                <Airlines user={user} />
+              ) : (
+                <Recycle user={user} />
+              )}
+            </>
           )}
         </>
       )}

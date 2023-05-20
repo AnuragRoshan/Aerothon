@@ -7,7 +7,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-function Recycle() {
+function Recycle({ user }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedCheckboxes, setSelectedCheckboxes] = useState([]);
   let [datas, setData] = useState([]);
@@ -115,9 +115,15 @@ function Recycle() {
   };
 
   return (
-    <div style={{ marginBlockStart: "2rem", paddingInline: "2rem" }}>
-      <div style={{ fontFamily: "cursive", fontSize: "2rem" }}>
-        Hey Recycler
+    <div
+      style={{
+        marginBlockStart: "2rem",
+        paddingInline: "2rem",
+        fontFamily: "Montserrat",
+      }}
+    >
+      <div style={{ fontFamily: "Montserrat", fontSize: "2rem" }}>
+        {user.companyName}
       </div>
       <div
         style={{

@@ -77,88 +77,88 @@ const Dashboard = () => {
 
       <h1 className="title">Avionics</h1>
       <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
-        <div className="pie" style={{ flex: "1", flex: "1" }}>
+        <div className="pie" style={{ flex: "1" }}>
           <PieUsecaseA />
         </div>
-        <div className="pie" style={{ flex: "1", flex: "1" }}>
+        <div className="pie" style={{ flex: "1" }}>
           <PieMaterialA />
         </div>
-        <div className="doughNut" style={{ flex: "1", flex: "1" }}>
+        <div className="doughNut" style={{ flex: "1" }}>
           <DoughnutManufacturerA />
         </div>
-        <div className="doughNut" style={{ flex: "1", flex: "1" }}>
+        <div className="doughNut" style={{ flex: "1" }}>
           <DoughnutLocationA />
         </div>
-        <div className="doughNut" style={{ flex: "1", flex: "1" }}>
+        <div className="doughNut" style={{ flex: "1" }}>
           <DoughnutAircraftModelA />
         </div>
-        <div className="bar" style={{ flex: "1", flex: "1" }}>
+        <div className="bar" style={{ flex: "1" }}>
           <BarChartA />
         </div>
       </div>
 
       <h1 className="title">Engine</h1>
       <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
-        <div className="pie" style={{ flex: "1", flex: "1" }}>
+        <div className="pie" style={{ flex: "1" }}>
           <PieUsecaseE />
         </div>
-        <div className="pie" style={{ flex: "1", flex: "1" }}>
+        <div className="pie" style={{ flex: "1" }}>
           <PieMaterialE />
         </div>
-        <div className="doughNut" style={{ flex: "1", flex: "1" }}>
+        <div className="doughNut" style={{ flex: "1" }}>
           <DoughnutManufacturerE />
         </div>
-        <div className="doughNut" style={{ flex: "1", flex: "1" }}>
+        <div className="doughNut" style={{ flex: "1" }}>
           <DoughnutLocationE />
         </div>
-        <div className="doughNut" style={{ flex: "1", flex: "1" }}>
+        <div className="doughNut" style={{ flex: "1" }}>
           <DoughnutAircraftModelE />
         </div>
-        <div className="bar" style={{ flex: "1", flex: "1" }}>
+        <div className="bar" style={{ flex: "1" }}>
           <BarChartE />
         </div>
       </div>
 
       <h1 className="title">Landing Gear</h1>
       <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
-        <div className="pie" style={{ flex: "1", flex: "1" }}>
+        <div className="pie" style={{ flex: "1" }}>
           <PieUsecaseL />
         </div>
-        <div className="pie" style={{ flex: "1", flex: "1" }}>
+        <div className="pie" style={{ flex: "1" }}>
           <PieMaterialL />
         </div>
-        <div className="doughNut" style={{ flex: "1", flex: "1" }}>
+        <div className="doughNut" style={{ flex: "1" }}>
           <DoughnutManufacturerL />
         </div>
-        <div className="doughNut" style={{ flex: "1", flex: "1" }}>
+        <div className="doughNut" style={{ flex: "1" }}>
           <DoughnutLocationL />
         </div>
-        <div className="doughNut" style={{ flex: "1", flex: "1" }}>
+        <div className="doughNut" style={{ flex: "1" }}>
           <DoughnutAircraftModelL />
         </div>
-        <div className="bar" style={{ flex: "1", flex: "1" }}>
+        <div className="bar" style={{ flex: "1" }}>
           <BarChartL />
         </div>
       </div>
 
       <h1 className="title">Wings</h1>
       <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
-        <div className="pie" style={{ flex: "1", flex: "1" }}>
+        <div className="pie" style={{ flex: "1" }}>
           <PieUsecaseW />
         </div>
-        <div className="pie" style={{ flex: "1", flex: "1" }}>
+        <div className="pie" style={{ flex: "1" }}>
           <PieMaterialW />
         </div>
-        <div className="doughNut" style={{ flex: "1", flex: "1" }}>
+        <div className="doughNut" style={{ flex: "1" }}>
           <DoughnutManufacturerW />
         </div>
-        <div className="doughNut" style={{ flex: "1", flex: "1" }}>
+        <div className="doughNut" style={{ flex: "1" }}>
           <DoughnutLocationW />
         </div>
-        <div className="doughNut" style={{ flex: "1", flex: "1" }}>
+        <div className="doughNut" style={{ flex: "1" }}>
           <DoughnutAircraftModelW />
         </div>
-        <div className="bar" style={{ flex: "1", flex: "1" }}>
+        <div className="bar" style={{ flex: "1" }}>
           <BarChartW />
         </div>
       </div>
