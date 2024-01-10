@@ -2,7 +2,6 @@ import React from "react";
 import Manufacturer from "./Manufacturer";
 import Airlines from "./Airlines";
 import Recycle from "./Recycle";
-import SignIn from "./LoginSingup/SignIn";
 import SignUp from "./LoginSingup/SignUp";
 
 const homePage = ({ user }) => {
@@ -15,10 +14,16 @@ const homePage = ({ user }) => {
         <>
           {t.userType == "manufacturer" ? (
             <>
-              <Manufacturer />
+              <Manufacturer user={user} />
             </>
           ) : (
-            <>{t.userType == "airline" ? <Airlines /> : <Recycle />}</>
+            <>
+              {t.userType == "airline" ? (
+                <Airlines user={user} />
+              ) : (
+                <Recycle user={user} />
+              )}
+            </>
           )}
         </>
       )}

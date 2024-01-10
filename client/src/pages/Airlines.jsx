@@ -7,7 +7,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-function Airlines() {
+function Airlines({ user }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedCheckboxes, setSelectedCheckboxes] = useState([]);
   let [datas, setData] = useState([]);
@@ -19,23 +19,30 @@ function Airlines() {
     water_usage_saved: "1000",
   });
 
-  console.log(filter.age);
+  // console.log(filter.age);
 
   const fetchData = async () => {
+    let ageParam = filter.age || "1000";
+    let cfp = filter.carbon_footprint_saved || "1000";
+    let lcs = filter.life_cycle_assessment_score || "1000";
+    let landfill = filter.landfill_waste_saved || "1000";
+    let water = filter.water_usage_saved || "1000";
     const { data } = await axios.get(
       `http://localhost:5000/filter2/` +
-        filter.age +
+        ageParam +
         "/" +
-        filter.carbon_footprint_saved +
+        cfp +
         "/" +
-        filter.life_cycle_assessment_score +
+        lcs +
         "/" +
-        filter.landfill_waste_saved +
+        landfill +
         "/" +
-        filter.water_usage_saved
+        water
     );
-    console.log(data);
+
     setData(data);
+
+    // console.log(data);
   };
 
   useEffect(() => {
@@ -43,7 +50,8 @@ function Airlines() {
   }, [filter]);
   const handleInputs = (e) => {
     setfilter({ ...filter, [e.target.name]: e.target.value });
-    console.log(filter);
+    // console.log(filter);
+    console.log(e.target.value);
   };
   // console.log(filter.landfill_waste_saved);
   // console.log(datas);
@@ -64,11 +72,11 @@ function Airlines() {
       setSelectedCheckboxes(
         selectedCheckboxes.filter((checkbox) => checkbox !== value)
       );
-      console.log(selectedCheckboxes);
+      // console.log(selectedCheckboxes);
     } else {
       // If it doesn't exist, add it to the array
       setSelectedCheckboxes([...selectedCheckboxes, value]);
-      console.log(selectedCheckboxes);
+      // console.log(selectedCheckboxes);
     }
   };
 
@@ -82,7 +90,7 @@ function Airlines() {
       .then((response) => {
         var message = response.data.msg;
         var status = response.status;
-        console.log(message);
+        // console.log(message);
 
         if (status === 200) {
           toast.success(`${message}`, {
@@ -108,9 +116,15 @@ function Airlines() {
   };
 
   return (
-    <div style={{ marginBlockStart: "2rem", paddingInline: "2rem" }}>
-      <div style={{ fontFamily: "cursive", fontSize: "2rem" }}>
-        Hey Airlines
+    <div
+      style={{
+        marginBlockStart: "2rem",
+        paddingInline: "2rem",
+        fontFamily: "Montserrat",
+      }}
+    >
+      <div style={{ fontFamily: "Montserrat", fontSize: "2rem" }}>
+        {user.companyName}
       </div>
       <div
         style={{

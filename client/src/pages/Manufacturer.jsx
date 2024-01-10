@@ -7,7 +7,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-function Manufacturer(user = { user }) {
+function Manufacturer({ user }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedCheckboxes, setSelectedCheckboxes] = useState([]);
   let [datas, setData] = useState([]);
@@ -22,20 +22,27 @@ function Manufacturer(user = { user }) {
   console.log(filter.age);
 
   const fetchData = async () => {
+    let ageParam = filter.age || "1000";
+    let cfp = filter.carbon_footprint_saved || "1000";
+    let lcs = filter.life_cycle_assessment_score || "1000";
+    let landfill = filter.landfill_waste_saved || "1000";
+    let water = filter.water_usage_saved || "1000";
     const { data } = await axios.get(
-      `http://localhost:5000/filter/` +
-        filter.age +
+      `http://localhost:5000/filter2/` +
+        ageParam +
         "/" +
-        filter.carbon_footprint_saved +
+        cfp +
         "/" +
-        filter.life_cycle_assessment_score +
+        lcs +
         "/" +
-        filter.landfill_waste_saved +
+        landfill +
         "/" +
-        filter.water_usage_saved
+        water
     );
-    console.log(data);
+
     setData(data);
+
+    // console.log(data);
   };
 
   useEffect(() => {
@@ -107,9 +114,15 @@ function Manufacturer(user = { user }) {
   };
 
   return (
-    <div style={{ marginBlockStart: "2rem", paddingInline: "2rem" }}>
-      <div style={{ fontFamily: "cursive", fontSize: "2rem" }}>
-        Hey Manufacturer
+    <div
+      style={{
+        marginBlockStart: "2rem",
+        paddingInline: "2rem",
+        fontFamily: "Montserrat",
+      }}
+    >
+      <div style={{ fontFamily: "Montserrat", fontSize: "2rem" }}>
+        {user.companyName}
       </div>
       <div
         style={{

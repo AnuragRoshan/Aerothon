@@ -178,7 +178,7 @@ exports.sendRecycle = async (req, res, next) => {
             }
             console.log(i);
             console.log(document);
-            partsSchema.deleteOne({ _id: i });
+            // partsSchema.deleteOne({ _id: i });
 
 
             const recyclableProduct = new recyclablePartsSchema({
@@ -230,7 +230,7 @@ exports.sendRecycle2 = async (req, res, next) => {
             console.log(document);
 
 
-            partsSchema.deleteOne({ _id: i });
+            // partsSchema.deleteOne({ _id: i });
 
             const recyclableProduct = new recyclablePartsSchema({
                 part: document.part,
@@ -279,7 +279,7 @@ exports.sendRecycle3 = async (req, res, next) => {
             }
             console.log(document);
 
-            recyclablePartsSchema.deleteOnea({ _id: i });
+            // recyclablePartsSchema.deleteOnea({ _id: i });
 
 
             const recycledProduct = new recycledPartsSchema({
@@ -317,10 +317,12 @@ exports.userDetails = (req, res) => {
     res.send(req.user); // The req.user stores the entire user that has been authenticated inside of it.
     console.log(req.user);
 };
-exports.logout = (req, res) => {
+exports.logout = (req, res, nect) => {
     req.logout(function (err) {
         if (err) { return next(err); }
-        res.redirect('/');
+        else {
+            res.status(200).json({ msg: "Logged Out" })
+        }
     });
 };
 // exports.userDetails = (req, res) => {

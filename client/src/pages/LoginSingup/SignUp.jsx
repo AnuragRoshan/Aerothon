@@ -3,7 +3,7 @@ import "../Assets/css/login.css";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 // import { FaEnvelope, FaLock, FaLockOpen, FaUser } from "react-icons/fa";
 
 const Settings = () => {
@@ -16,12 +16,12 @@ const Settings = () => {
 
   const submitForm = async () => {
     // alert("Submitted");
-    navigate("/");
     await axios
       .post(`http://localhost:5000/login`, user, {
         withCredentials: true,
       })
       .then((response) => {
+        //   window.history.replaceState(null, "", "/");
         console.log(response);
         var message = response.data.message;
         var status = response.data.status;
@@ -57,6 +57,7 @@ const Settings = () => {
             theme: "dark",
           });
         }
+        // Navigate("/");
       });
   };
 
@@ -108,7 +109,7 @@ const Settings = () => {
               >
                 Login
               </button>
-              <ToastContainer className="toastifyCss" />
+              <ToastContainer />
             </div>
           </div>
         </div>
