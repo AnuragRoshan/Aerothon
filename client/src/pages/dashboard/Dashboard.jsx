@@ -42,22 +42,42 @@ import BarChartW from "../graphs_dashboard/wings/bar-newRecycle";
 
 
 import StaggedCHart from "../graphs_dashboard/stagged";
+
+import StaggedChartRecycle from "../graphs_dashboard/recycle/staggedChart";
 import LineChart from "../graphs_dashboard/lineChart";
 
 const Dashboard = () => {
   return (
     <div className="container">
-    <div className="stagged">        <StaggedCHart />      </div>
-    <div className="line">        <LineChart />      </div>
-            <h1 className="title">Fuselage</h1>
-        <div style={{display:"flex", flexDirection:"row", flexWrap:"wrap"}}>
-            <div className='pie' style={{flex:"1"}}><PieUsecasef/></div>
-            <div className='pie' style={{flex:"1"}}><PieMaterialf/></div>
-            <div className='doughNut' style={{flex:"1"}}><DoughnutManufacturerf/></div>
-            <div className='doughNut' style={{flex:"1"}}><DoughnutLocationf/></div>
-            <div className='doughNut' style={{flex:"1"}}><DoughnutAircraftModelf/></div>
-            <div className='bar' style={{flex:"1"}}><BarChartf/></div>
+      <div className="stagged">
+        {" "}
+        <StaggedCHart />{" "}
+      </div>
+      <div className="line">
+        {" "}
+        <LineChart />{" "}
+      </div>
+      <h1 className="title">Fuselage</h1>
+      <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
+        <div className="pie" style={{ flex: "1" }}>
+          <PieUsecasef />
         </div>
+        <div className="pie" style={{ flex: "1" }}>
+          <PieMaterialf />
+        </div>
+        <div className="doughNut" style={{ flex: "1" }}>
+          <DoughnutManufacturerf />
+        </div>
+        <div className="doughNut" style={{ flex: "1" }}>
+          <DoughnutLocationf />
+        </div>
+        <div className="doughNut" style={{ flex: "1" }}>
+          <DoughnutAircraftModelf />
+        </div>
+        <div className="bar" style={{ flex: "1" }}>
+          <BarChartf />
+        </div>
+      </div>
 
       <h1 className="title">Avionics</h1>
       <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
@@ -146,12 +166,14 @@ const Dashboard = () => {
           <BarChartW />
         </div>
       </div>
+      <div className="stagged">
+        {" "}
+        <StaggedChartRecycle />{" "}
+      </div>
 
       {/* <div className="doughNut">      <DoughnutChart />      </div>
       <div className="bar">        <BarChart />      </div>
       <div className="pie">        <PieChart />      </div> */}
-
-
     </div>
   );
 };

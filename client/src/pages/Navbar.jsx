@@ -60,6 +60,15 @@ const Navbar = ({ user }) => {
                   Dashboard
                 </a>
               </li>
+              <li className="nav-item">
+                <a
+                  className="nav-link"
+                  href="/signin"
+                  style={{ marginTop: "1rem" }}
+                >
+                  Sign Up
+                </a>
+              </li>
               {user ? (
                 <>
                   {" "}

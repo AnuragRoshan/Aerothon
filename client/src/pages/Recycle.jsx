@@ -302,7 +302,7 @@ function Recycle() {
                   borderRadius: "1rem",
                 }}
               >
-                Send Parts For Recycle
+                Mark as Recycled
               </button>
               <ToastContainer />
             </li>

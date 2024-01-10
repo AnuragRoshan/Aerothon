@@ -33,7 +33,7 @@ const PieUsecasef = () => {
   useEffect(() => {
     const fetchData = async () => {
       const url = "https://jsonplaceholder.typicode.com/comments";
-      const dataSetX = [436, 397, 415, 383, 393];
+      const dataSetX = [4306, 3097, 415, 383, 393];
 
       const labelX = [
         "Aircraft Maint.",

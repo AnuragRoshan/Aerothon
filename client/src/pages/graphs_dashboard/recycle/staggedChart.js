@@ -26,6 +26,15 @@ export const options = {
       text: "Stacked graph of Overall Recycle requests",
     },
   },
+  scales: {
+    y: {
+      min: 40,
+      max: 100,
+      ticks: {
+        stepSize: 1,
+      },
+    },
+  },
   responsive: true,
   scales: {
     x: {
@@ -45,8 +54,8 @@ const StaggedChartRecycle = () => {
   useEffect(() => {
     const fetchData = () => {
       const url = "https://jsonplaceholder.typicode.com/comments";
-      const dataset1 = [124, 651, 152, 648, 784];//recycled
-      const dataset2 = [784, 562, 478, 956, 485];//nonrecycled
+      const dataset1 = [10,5, 8, 7, 4, 16];//recycled
+      const dataset2 = [3, 9, 8, 15, 10];//nonrecycled
 
       const lableset = [
         "Avionics",
