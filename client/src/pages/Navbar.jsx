@@ -101,7 +101,9 @@ const Navbar = ({ user }) => {
               <li className="nav-item">
                 <a
                   className="nav-link"
-                  href="/Signin"
+
+                  href="/signin"
+                  
                   style={{ marginTop: "1rem" }}
                 >
                   Sign Up

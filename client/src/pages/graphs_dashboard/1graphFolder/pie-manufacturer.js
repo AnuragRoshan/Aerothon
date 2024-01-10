@@ -1,4 +1,4 @@
-import { Pie } from "react-chartjs-2";
+import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { useEffect, useState } from "react";
 
@@ -19,12 +19,12 @@ const options = {
     },
     title: {
       display: true,
-      text: "Usecase of Fuselage",
+      text: "Manufacturer of Avionics",
     },
   },
 };
 
-const PieUsecasef = () => {
+const DoughnutManufacturerA = () => {
   const [data, setData] = useState({
     labels: [],
     datasets: [],
@@ -33,16 +33,8 @@ const PieUsecasef = () => {
   useEffect(() => {
     const fetchData = async () => {
       const url = "https://jsonplaceholder.typicode.com/comments";
-      const dataSetX = [4306, 3097, 415, 383, 393];
-
-      const labelX = [
-        "Aircraft Maint.",
-        "Art installation",
-        "Automotive",
-        "Building material",
-        "Furniture",
-      ];
-
+      const dataSetX = [];
+      const labelX = [];
       fetch(url)
         .then((data) => {
           console.log("Pie DAta", data);
@@ -51,11 +43,10 @@ const PieUsecasef = () => {
         })
         .then((resPie) => {
           console.log("Pie Res", resPie);
-          //   for (const item of resPie) {
-          //     dataSetX.push(item.postId);
-          //   }
-
-          console.log("Pie Data Set", dataSetX);
+          for (const item of resPie) {
+            dataSetX.push(item.count);
+            labelX.push(item.name);
+          }
 
           setData({
             labels: labelX,
@@ -91,8 +82,7 @@ const PieUsecasef = () => {
     fetchData();
   }, []);
 
-  return <Pie data={data} options={options} />;
-  // return (<div>Hello world</div>)
+  return <Doughnut data={data} options={options} />;
 };
 
-export default PieUsecasef;
+export default DoughnutManufacturerA;

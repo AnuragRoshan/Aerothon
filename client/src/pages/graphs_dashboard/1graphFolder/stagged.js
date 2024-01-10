@@ -24,7 +24,7 @@ export const options = {
   plugins: {
     title: {
       display: true,
-      text: "Stacked graph of Overall Savings",
+      text: "Stacked graph ",
     },
   },
   responsive: true,
@@ -45,7 +45,7 @@ function addVariance(array, variance) {
   }
 }
 
-const StaggedCHart = () => {
+const StaggedCHartGraph = () => {
   const [data, setData] = useState({
     labels: [],
     datasets: [],
@@ -53,34 +53,12 @@ const StaggedCHart = () => {
   useEffect(() => {
     const fetchData = () => {
       const url = "https://jsonplaceholder.typicode.com/comments";
-      const dataset1 = [897557, 914243, 871377, 885149, 864191]; //land
-      for (let i = 0; i < dataset1.length; i++) {
-        dataset1[i] = Math.round(dataset1[i] * 3);
-      }
-      const dataset2 = [9622801, 9740619, 9993200, 9632419, 9666117]; //water
-      //reduce water usage by 20% in dataset2
-      for (let i = 0; i < dataset2.length; i++) {
-        dataset2[i] = Math.round(dataset2[i] * 0.6);
-      }
-      const dataset3 = [883784, 898664, 915746, 858232, 848451]; //carbon
 
-       for (let i = 0; i < dataset3.length; i++) {
-         dataset3[i] = Math.round(dataset3[i] * 4);
-       }
-
-      const dataset4 = [4886745, 4894916, 4977842, 4852334, 4738604]; //energy
-      addVariance(dataset1, 0.1); // add 10% variance
-      addVariance(dataset2, 0.05); // add 5% variance
-      addVariance(dataset3, 0.15); // add 15% variance
-      addVariance(dataset4, 0.2); // add 20% variance
-
-      const lableset = [
-        "Avionics",
-        "Engine",
-        "Fuselage",
-        "Landing Gear",
-        "Wings",
-      ];
+      const dataset1=[];
+      const dataset2 =[];
+      const dataset3 =[];
+      const dataset4 = []
+      const lableset = [];
       fetch(url)
         .then((data) => {
           console.log("API data", data);
@@ -90,8 +68,26 @@ const StaggedCHart = () => {
         .then((res) => {
           console.log("res", res);
 
-          console.log("dataset1", dataset1);
-          console.log("dataset2", dataset2);
+          for (const x of res) {
+            dataset1.push(x.dt1);
+            dataset2.push(x.dt2);
+            dataset3.push(x.dt3);
+            dataset4.push(x.dt4);
+            lableset.push(x.name);
+          }
+          for (let i = 0; i < dataset1.length; i++) {
+            dataset1[i] = Math.round(dataset1[i] * 3);
+          }
+          for (let i = 0; i < dataset2.length; i++) {
+            dataset2[i] = Math.round(dataset2[i] * 0.6);
+          }
+          for (let i = 0; i < dataset3.length; i++) {
+            dataset3[i] = Math.round(dataset3[i] * 4);
+          }
+          addVariance(dataset1, 0.1); // add 10% variance
+          addVariance(dataset2, 0.05); // add 5% variance
+          addVariance(dataset3, 0.15); // add 15% variance
+          addVariance(dataset4, 0.2); // add 20% variance
 
           setData({
             labels: lableset,
@@ -133,4 +129,4 @@ const StaggedCHart = () => {
   // return (<div>Hello</div>)
 };
 
-export default StaggedCHart;
+export default StaggedCHartGraph;

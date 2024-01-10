@@ -2,6 +2,7 @@ import React from "react";
 // import DoughnutChart from '../graphs_dashboard/chart-doughnut'
 // import BarChart from '../graphs_dashboard/chart-horizontal'
 // import PieChart from '../graphs_dashboard/chart-pie'
+import stagged from '../graphs_dashboard/stagged'
 import "../dashboard/Dashboard.css";
 
 import DoughnutAircraftModelf from "../graphs_dashboard/fuselage/pie-aircraftModel";
@@ -39,7 +40,10 @@ import PieMaterialW from "../graphs_dashboard/wings/pie-material";
 import PieUsecaseW from "../graphs_dashboard/wings/pie-usecase";
 import BarChartW from "../graphs_dashboard/wings/bar-newRecycle";
 
+
 import StaggedCHart from "../graphs_dashboard/stagged";
+
+import StaggedChartRecycle from "../graphs_dashboard/recycle/staggedChart";
 import LineChart from "../graphs_dashboard/lineChart";
 
 const Dashboard = () => {
@@ -50,9 +54,9 @@ const Dashboard = () => {
         <StaggedCHart />{" "}
       </div>
       <div className="line">
-        <LineChart />
+        {" "}
+        <LineChart />{" "}
       </div>
-
       <h1 className="title">Fuselage</h1>
       <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
         <div className="pie" style={{ flex: "1" }}>
@@ -161,6 +165,10 @@ const Dashboard = () => {
         <div className="bar" style={{ flex: "1" }}>
           <BarChartW />
         </div>
+      </div>
+      <div className="stagged">
+        {" "}
+        <StaggedChartRecycle />{" "}
       </div>
 
       {/* <div className="doughNut">      <DoughnutChart />      </div>
